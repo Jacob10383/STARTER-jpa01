@@ -54,7 +54,10 @@ public class MenuItem {
      */
 
     public String getPrice(int width) {
-        return "stub";
+        String s="$"+priceInCents/100+"."+priceInCents%100;;
+        if (s.length()>width)
+            {throw new TooNarrowException();}
+        return s;
     }
 
     /**
