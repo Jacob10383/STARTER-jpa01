@@ -16,7 +16,7 @@ public class MenuItem {
 
 
     public MenuItem(String name, int priceInCents, String category) {
-        // stub
+        // stubb
     }
 
     /**
