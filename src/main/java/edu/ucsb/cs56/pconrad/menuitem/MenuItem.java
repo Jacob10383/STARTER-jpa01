@@ -6,6 +6,17 @@ public class MenuItem {
     private int priceInCents;
     private String category;
 
+    public String getName() {
+        return this.name;
+    }
+
+
+    public int getPriceInCents() {
+        return this.priceInCents;
+    }
+
+
+
     /**
      * Custom exception thrown when getPrice is called with a width
      * that is too narrow for the formatted price.
@@ -48,6 +59,11 @@ public class MenuItem {
      *
      * @return string in csv format
      */
+
+
+    public String  getCategory(){
+        return "stub";
+    }
 
     @Override
     public String toString() {
