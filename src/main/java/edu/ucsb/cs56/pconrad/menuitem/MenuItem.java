@@ -40,7 +40,7 @@ public class MenuItem {
      */
 
     public String getPrice() {
-        return "stub";
+        return "$"+priceInCents/100+"."+priceInCents%100;
     }
 
     /**
