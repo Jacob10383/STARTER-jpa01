@@ -27,8 +27,12 @@ public class MenuItem {
 
 
     public MenuItem(String name, int priceInCents, String category) {
-        // stubb
+        this.name = name;
+        this.priceInCents = priceInCents;
+        this.category = category;
     }
+
+  
 
     /**
      * Returns the price, formatted as a string with a $.
