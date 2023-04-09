@@ -57,19 +57,13 @@ public class MenuItem {
  * @param width width of returned string
  */
 
-
-
  public String getPrice(int width) throws TooNarrowException {
-     BigDecimal price = new BigDecimal(priceInCents);
-     BigDecimal hundred = new BigDecimal(100);
-     BigDecimal result = price.divide(hundred);
-     String s = String.format("$%1$,.2f", result);
-     if (s.length() > width) {
-         throw new TooNarrowException();
-     }
-     return String.format("%1$" + width + "s", s);
- }
- 
+    String s = String.format("$%1$,.2f", (double) priceInCents / 100);
+    if (s.length() > width) {
+        throw new TooNarrowException();
+    }
+    return String.format("%1$" + width + "s", s);
+}
 
 public String  getCategory(){
     return this.category;
