@@ -1,4 +1,5 @@
 package edu.ucsb.cs56.pconrad.menuitem;
+import java.math.BigDecimal;
 
 public class MenuItem {
 
@@ -39,8 +40,11 @@ public class MenuItem {
      * For example "$0.99", "$10.99", or "$3.50"
      */
 
-    public String getPrice() {
-        return "$"+priceInCents/100+"."+priceInCents%100;
+     public String getPrice() {
+        BigDecimal price = new BigDecimal(priceInCents);
+        BigDecimal hundred = new BigDecimal(100);
+        BigDecimal result = price.divide(hundred);
+        return "$" + result.toString();
     }
 
 /**
@@ -53,13 +57,19 @@ public class MenuItem {
  * @param width width of returned string
  */
 
+
+
  public String getPrice(int width) throws TooNarrowException {
-    String s = String.format("$%1$,.2f", (double) priceInCents / 100);
-    if (s.length() > width) {
-        throw new TooNarrowException();
-    }
-    return String.format("%1$" + width + "s", s);
-}
+     BigDecimal price = new BigDecimal(priceInCents);
+     BigDecimal hundred = new BigDecimal(100);
+     BigDecimal result = price.divide(hundred);
+     String s = String.format("$%1$,.2f", result);
+     if (s.length() > width) {
+         throw new TooNarrowException();
+     }
+     return String.format("%1$" + width + "s", s);
+ }
+ 
 
 public String  getCategory(){
     return this.category;
