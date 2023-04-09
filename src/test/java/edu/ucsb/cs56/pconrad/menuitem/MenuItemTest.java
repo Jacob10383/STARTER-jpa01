@@ -15,6 +15,11 @@ public class MenuItemTest {
         smallPokeBowl = new MenuItem("Small Poke Bowl", 1049, "Poke Bowls");
         assertEquals("$10.49", smallPokeBowl.getPrice());
     }
+    @Test
+    public void test_getPrice_large() {
+        smallPokeBowl = new MenuItem("HUGE Poke Bowl", 100049, "Poke Bowls");
+        assertEquals("$1000.49", smallPokeBowl.getPrice());
+    }
 
     @Test
     public void test_getPrice_10() {
