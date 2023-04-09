@@ -41,11 +41,12 @@ public class MenuItem {
      */
 
      public String getPrice() {
-        BigDecimal price = new BigDecimal(priceInCents);
-        BigDecimal hundred = new BigDecimal(100);
-        BigDecimal result = price.divide(hundred);
-        return "$" + result.toString();
+        long priceInCents = getPriceInCents();
+        long dollars = priceInCents / 100;
+        long cents = priceInCents % 100;
+        return String.format("$%d.%02d", dollars, cents);
     }
+    
 
 /**
  * Returns the price, formatted as a string with a $,
